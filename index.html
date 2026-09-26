@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111110">
+    <title>The Gentlemen | Barber Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+<header class="header" id="header">
+    <nav class="container nav">
+        <a href="#inicio" class="brand">
+            <span class="brand-mark"><i class="bi bi-scissors"></i></span>
+            <span>THE GENTLEMEN<small>BARBER STUDIO</small></span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#servicios">Servicios</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+
+        <button class="btn btn-gold nav-reserve" data-open-booking>
+            <i class="bi bi-calendar-check"></i>
+            Reservar
+        </button>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="inicio">
+        <div class="hero-photo"></div>
+        <div class="hero-shade"></div>
+
+        <div class="container hero-content">
+            <span class="eyebrow">
+                <i class="bi bi-stars"></i>
+                TU ESTILO, NUESTRA PASIÓN
+            </span>
+
+            <h1>El arte de<br>verte <em>bien.</em></h1>
+
+            <p>
+                Cortes de precisión, cuidado personal y una
+                experiencia diseñada para ti.
+            </p>
+
+            <button class="btn btn-gold btn-large" data-open-booking>
+                <i class="bi bi-calendar2-check"></i>
+                Reservar mi cita
+                <i class="bi bi-arrow-up-right"></i>
+            </button>
+
+            <a href="#servicios" class="hero-secondary">
+                Explorar servicios <i class="bi bi-arrow-down"></i>
+            </a>
+        </div>
+
+        <div class="hero-caption">
+            <i class="bi bi-geo-alt"></i>
+            SANTO DOMINGO · REPÚBLICA DOMINICANA
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container benefits-grid">
+            <div>
+                <i class="bi bi-scissors"></i>
+                <span>Cortes profesionales</span>
+            </div>
+            <div>
+                <i class="bi bi-calendar2-heart"></i>
+                <span>Reserva en segundos</span>
+            </div>
+            <div>
+                <i class="bi bi-gem"></i>
+                <span>Experiencia premium</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section services-section" id="servicios">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">NUESTRO CATÁLOGO</span>
+                <h2>Encuentra tu <em>estilo.</em></h2>
+                <p>Elige el servicio que deseas y reserva fácilmente.</p>
+            </div>
+
+            <div class="filters" id="filters">
+                <button class="filter active" data-filter="todos">
+                    <i class="bi bi-grid"></i> Todos
+                </button>
+                <button class="filter" data-filter="cortes">
+                    <i class="bi bi-scissors"></i> Cortes
+                </button>
+                <button class="filter" data-filter="barba">
+                    <i class="bi bi-person"></i> Barba
+                </button>
+                <button class="filter" data-filter="facial">
+                    <i class="bi bi-stars"></i> Facial
+                </button>
+                <button class="filter" data-filter="manicura">
+                    <i class="bi bi-hand-index"></i> Manicura
+                </button>
+                <button class="filter" data-filter="pedicura">
+                    <i class="bi bi-heart"></i> Pedicura
+                </button>
+            </div>
+
+            <div class="service-grid" id="serviceGrid"></div>
+        </div>
+    </section>
+
+    <section class="about" id="nosotros">
+        <div class="container about-content">
+            <span class="eyebrow">THE GENTLEMEN EXPERIENCE</span>
+            <h2>Más que un corte.<br><em>Una experiencia.</em></h2>
+            <p>
+                Tu tiempo es importante. Elige tu estilo,
+                tu barbero y el momento perfecto para visitarnos.
+            </p>
+            <button class="btn btn-gold btn-large" data-open-booking>
+                <i class="bi bi-calendar-plus"></i>
+                Agenda tu visita
+            </button>
+        </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+        <div class="container contact-content">
+            <span class="eyebrow">ESTAMOS PARA TI</span>
+            <h2>Tu próximo corte <em>te espera.</em></h2>
+            <p><i class="bi bi-geo-alt"></i> Santo Domingo, República Dominicana</p>
+            <p><i class="bi bi-clock"></i> Lunes a sábado · 9:00 AM – 7:00 PM</p>
+            <button class="btn btn-dark" data-open-booking>
+                <i class="bi bi-calendar-check"></i>
+                Reservar ahora
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="brand">
+            <span class="brand-mark"><i class="bi bi-scissors"></i></span>
+            <span>THE GENTLEMEN<small>BARBER STUDIO</small></span>
+        </div>
+        <span>© <span id="year"></span> · Todos los derechos reservados.</span>
+    </div>
+</footer>
+
+<!-- MODAL DE RESERVA -->
+
+<div class="modal-backdrop" id="bookingModal" aria-hidden="true">
+    <div class="booking-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle"
+         tabindex="-1">
+
+        <div class="modal-top">
+            <div class="modal-brand">
+                <i class="bi bi-scissors"></i>
+                <span>THE GENTLEMEN</span>
+            </div>
+            <button class="icon-btn" id="closeModal" aria-label="Cerrar reserva">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="modal-progress">
+            <div class="progress-label">
+                <span id="stepLabel">PASO 1 DE 4</span>
+                <span id="stepName">Servicios</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="modal-scroll" id="modalScroll">
+
+            <!-- PASO 1: SERVICIOS -->
+            <section class="step active" data-step="1">
+                <div class="step-heading">
+                    <span class="step-icon"><i class="bi bi-scissors"></i></span>
+                    <h2 id="modalTitle">¿Qué te gustaría hacerte?</h2>
+                    <p>Puedes elegir uno o varios servicios.</p>
+                </div>
+
+                <div class="modal-filters" id="modalFilters"></div>
+                <div class="modal-services" id="modalServices"></div>
+            </section>
+
+            <!-- PASO 2: BARBERO -->
+            <section class="step" data-step="2">
+                <div class="step-heading">
+                    <span class="step-icon"><i class="bi bi-person-badge"></i></span>
+                    <h2>¿Quién te atenderá?</h2>
+                    <p>Selecciona tu profesional preferido.</p>
+                </div>
+
+                <div class="barbers-grid" id="barbersGrid"></div>
+            </section>
+
+            <!-- PASO 3: FECHA Y HORA -->
+            <section class="step" data-step="3">
+                <div class="step-heading">
+                    <span class="step-icon"><i class="bi bi-calendar2-week"></i></span>
+                    <h2>¿Cuándo nos visitas?</h2>
+                    <p>Selecciona el día y la hora que prefieras.</p>
+                </div>
+
+                <div class="calendar-box">
+                    <div class="calendar-header">
+                        <h3 id="calendarTitle"></h3>
+                        <div class="calendar-arrows">
+                            <button class="icon-btn" id="prevMonth" aria-label="Mes anterior">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="icon-btn" id="nextMonth" aria-label="Mes siguiente">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="weekdays">
+                        <span>L</span><span>M</span><span>X</span>
+                        <span>J</span><span>V</span><span>S</span><span>D</span>
+                    </div>
+                    <div class="calendar-days" id="calendarDays"></div>
+                </div>
+
+                <h3 class="time-heading">
+                    <i class="bi bi-clock"></i>
+                    Selecciona una hora
+                </h3>
+                <p class="time-hint" id="timeHint">
+                    Primero selecciona una fecha.
+                </p>
+                <div class="time-grid" id="timeGrid"></div>
+                <p class="demo-note">
+                    <i class="bi bi-info-circle"></i>
+                    Horarios demostrativos sujetos a confirmación.
+                </p>
+            </section>
+
+            <!-- PASO 4: CONFIRMACIÓN -->
+            <section class="step" data-step="4">
+                <div class="step-heading">
+                    <span class="step-icon"><i class="bi bi-check2-circle"></i></span>
+                    <h2>¡Todo listo!</h2>
+                    <p>Revisa tu solicitud antes de enviarla.</p>
+                </div>
+
+                <div class="final-summary">
+                    <h3><i class="bi bi-receipt"></i> Tu reserva</h3>
+                    <div id="finalServices"></div>
+
+                    <div class="final-total">
+                        <span>Total estimado</span>
+                        <strong id="finalTotal"></strong>
+                    </div>
+
+                    <div class="final-detail">
+                        <i class="bi bi-person-badge"></i>
+                        <span>Profesional</span>
+                        <strong id="finalBarber"></strong>
+                    </div>
+                    <div class="final-detail">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>Fecha</span>
+                        <strong id="finalDate"></strong>
+                    </div>
+                    <div class="final-detail">
+                        <i class="bi bi-clock"></i>
+                        <span>Hora</span>
+                        <strong id="finalTime"></strong>
+                    </div>
+                    <div class="final-detail">
+                        <i class="bi bi-hourglass-split"></i>
+                        <span>Duración</span>
+                        <strong id="finalDuration"></strong>
+                    </div>
+                </div>
+
+                <div class="optional-fields">
+                    <label for="clientName">
+                        <i class="bi bi-person"></i>
+                        Tu nombre <span>(opcional)</span>
+                    </label>
+                    <input id="clientName" type="text"
+                           maxlength="80" autocomplete="name"
+                           placeholder="¿Cómo te llamas?">
+
+                    <label for="clientNotes">
+                        <i class="bi bi-chat-left-text"></i>
+                        Indicaciones <span>(opcional)</span>
+                    </label>
+                    <textarea id="clientNotes" rows="3"
+                              maxlength="300"
+                              placeholder="Ej. Quiero el degradado bajo..."></textarea>
+                </div>
+
+                <div class="whatsapp-info">
+                    <i class="bi bi-whatsapp"></i>
+                    <p>
+                        Se abrirá WhatsApp con tu solicitud lista.
+                        Solo tendrás que pulsar <strong>Enviar</strong>.
+                        No necesitas escribir tu número.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- PIE FIJO DEL MODAL -->
+        <div class="modal-footer">
+            <div class="mini-total">
+                <span id="miniCount">0 servicios seleccionados</span>
+                <strong id="miniTotal">RD$0</strong>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-back" id="backBtn" hidden>
+                    <i class="bi bi-arrow-left"></i>
+                    Atrás
+                </button>
+
+                <button class="btn btn-gold btn-next" id="nextBtn" disabled>
+                    Continuar
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+                <button class="btn btn-whatsapp" id="sendBtn" hidden>
+                    <i class="bi bi-whatsapp"></i>
+                    Enviar por WhatsApp
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
